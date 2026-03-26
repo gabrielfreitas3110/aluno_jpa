@@ -20,4 +20,13 @@ public class AlunoService {
     public void createAluno(Aluno aluno) {
         alunoRepository.save(aluno);
     }
+
+    public void updateAluno(Long id, Aluno aluno) {
+        Aluno alunoBanco = alunoRepository.findById(id).get();
+        alunoBanco.setNome(aluno.getNome());
+        alunoBanco.setMatricula(aluno.getMatricula());
+        alunoBanco.setDataNascimento(aluno.getDataNascimento());
+
+        alunoRepository.save(alunoBanco);
+    }
 }

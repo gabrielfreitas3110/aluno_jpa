@@ -24,4 +24,11 @@ public class AlunoController {
     public void inserirAluno(@RequestBody Aluno aluno) {
         alunoService.createAluno(aluno);
     }
+
+    @PutMapping("/{id}")
+    public void atualizarAluno(
+            @PathVariable("id") Long id,
+            @RequestBody Aluno aluno) {
+        alunoService.updateAluno(id, aluno);
+    }
 }
