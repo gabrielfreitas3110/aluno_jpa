@@ -20,6 +20,12 @@ public class AlunoController {
         return alunos;
     }
 
+    @GetMapping("/{id}")
+    public Aluno buscarAlunoPorId(@PathVariable("id") Long id) {
+        Aluno aluno = alunoService.getAlunoById(id);
+        return aluno;
+    }
+
     @PostMapping
     public void inserirAluno(@RequestBody Aluno aluno) {
         alunoService.createAluno(aluno);
@@ -30,5 +36,10 @@ public class AlunoController {
             @PathVariable("id") Long id,
             @RequestBody Aluno aluno) {
         alunoService.updateAluno(id, aluno);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletarAluno(@PathVariable("id") Long id) {
+        alunoService.deleteAluno(id);
     }
 }
