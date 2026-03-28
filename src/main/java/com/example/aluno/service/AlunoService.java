@@ -18,8 +18,9 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
 
-    public void createAluno(Aluno aluno) {
-        alunoRepository.save(aluno);
+    public Long createAluno(Aluno aluno) {
+        aluno = alunoRepository.save(aluno);
+        return aluno.getId();
     }
 
     public void updateAluno(Long id, Aluno aluno) {
